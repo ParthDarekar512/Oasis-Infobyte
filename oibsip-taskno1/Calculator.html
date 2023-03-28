@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+      .calculator {
+        width: 300px;
+        background-color: #000;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        font-size: 20px;
+      }
+      .calculator button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: orange;
+      }
+      .calculator button:hover {
+        background-color: #ccc;
+      }
+      .calculator button:active {
+        background-color: #bbb;
+      }
+      .calculator input {
+        width: 90%;
+        margin: 5px 0;
+        padding: 5px;
+        font-size: 20px;
+        text-align: right;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body Text="White">
+   <center> <div class="calculator">
+      <center><h1>Calculator</h1></center>
+      <center><input type="text" id="result" readonly></center><br>
+      <button onclick="clearResult()">C</button>
+      <button onclick="appendInput('.')">.</button>
+      <button onclick="appendInput('/')">/</button>
+      <button onclick="appendInput('*')">x</button><br>
+      <button onclick="appendInput('7')">7</button>
+      <button onclick="appendInput('8')">8</button>
+      <button onclick="appendInput('9')">9</button>
+      <button onclick="appendInput('-')">-</button><br>
+      <button onclick="appendInput('4')">4</button>
+      <button onclick="appendInput('5')">5</button>
+      <button onclick="appendInput('6')">6</button>
+      <button onclick="appendInput('+')">+</button><br>
+      <button onclick="appendInput('2')">2</button>
+      <button onclick="appendInput('3')">3</button>
+      <button onclick="appendInput('1')">1</button>
+      <button onclick="calculate()">=</button><br>
+      <button onclick="appendInput('0')">0</button>
+      <button onclick="appendInput('00')">00</button><br>
+      <center><h6>Developed by - Parth Darekar</h6></center>
+    </div></center>
+    <script>
+      function clearResult() {
+        document.getElementById('result').value = '';
+      }
+      function appendInput(value) {
+        document.getElementById('result').value += value;
+      }
+      function calculate() {
+        const expression = document.getElementById('result').value;
+        if (expression) {
+          try {
+            const result = eval(expression);
+            document.getElementById('result').value = result;
+          } catch (e) {
+            alert('Invalid expression');
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
